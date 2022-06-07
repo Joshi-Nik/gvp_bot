@@ -1,3 +1,4 @@
+
 import logging
 
 from telegram import __version__ as TG_VER
@@ -17,7 +18,7 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
 
 
-async def gujrati_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def about_us_hin(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Prompt same text & keyboard as `start` does but not as new message"""
     # Get CallbackQuery from Update
     # query = update.callback_query
@@ -26,32 +27,24 @@ async def gujrati_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # await query.answer()
     keyboard = [
         [
-            InlineKeyboardButton("ગુજરાત વિદ્યાપીઠ વિશે", callback_data='2.1')
+            InlineKeyboardButton("अवलोकन", callback_data='3.1.1'),
+            InlineKeyboardButton("इतिहास", callback_data='3.1.2')
         ],
         [
-            InlineKeyboardButton("શૈક્ષણિક કાર્યક્રમો", callback_data='2.2'),
-            InlineKeyboardButton("વહીવટ", callback_data='2.3')
+            InlineKeyboardButton("सामान्य जानकारी", callback_data='3.1.3'),
+            InlineKeyboardButton("मूल्यों", callback_data='3.1.4')
         ],
         [
-            InlineKeyboardButton("પુસ્તકાલય", callback_data='2.4'),
-            InlineKeyboardButton("રમતગમત", callback_data='2.5')
+            InlineKeyboardButton("प्रतीक", callback_data='3.1.5'),
+            InlineKeyboardButton("वार्षिक खाता", callback_data='3.1.6')
         ],
         [
-            InlineKeyboardButton("આગામી કાર્યક્રમ", callback_data='2.6'),
-            InlineKeyboardButton("ગ્રામીણ કેન્દ્ર", callback_data='2.7')
+            InlineKeyboardButton("IIQA उपक्रम", callback_data='3.1.7')
         ],
         [
-            InlineKeyboardButton("KVK", callback_data='2.8'),
-            InlineKeyboardButton("મ્યુઝિયમ", callback_data='2.9')
-        ],
-        [
-            InlineKeyboardButton("હેરિટેજ વોક", callback_data='2.10')
-        ],
-        [
-            InlineKeyboardButton("પાછળ", callback_data='0')
+            InlineKeyboardButton("पीछे", callback_data='0.3')
         ]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     # await update.message.reply_text("Start handler, Choose a route", reply_markup=reply_markup)
-    await context.bot.send_message(chat_id=update.effective_chat.id, text="તમે ગુજરાતી ભાષા પસંદ કરી છે",reply_markup=reply_markup)
-
+    await context.bot.send_message(chat_id=update.effective_chat.id, text="गुजरात विश्वविद्यालय के बारे में",reply_markup=reply_markup)

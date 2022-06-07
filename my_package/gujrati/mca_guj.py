@@ -17,7 +17,7 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
 
 
-async def mca(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def mca_guj(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Prompt same text & keyboard as `start` does but not as new message"""
     # Get CallbackQuery from Update
     # query = update.callback_query
@@ -26,22 +26,22 @@ async def mca(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # await query.answer()
     keyboard = [
         [
-            InlineKeyboardButton("Admission", callback_data='1.2.2.1.1'),
-            InlineKeyboardButton("Syllabus", callback_data='1.2.2.1.2')
+            InlineKeyboardButton("પ્રવેશ", callback_data='2.2.2.1.1'),
+            InlineKeyboardButton("અભ્યાસક્રમ", callback_data='2.2.2.1.2')
         ],
         [
-            InlineKeyboardButton("Faculty", callback_data='1.2.2.1.3'),
-            InlineKeyboardButton("Facilities", callback_data='1.2.2.1.4')
+            InlineKeyboardButton("ફેકલ્ટી", callback_data='2.2.2.1.3'),
+            InlineKeyboardButton("સુવિધાઓ", callback_data='2.2.2.1.4')
         ],
         [
-            InlineKeyboardButton("Placement", callback_data='1.2.2.1.5')            
+            InlineKeyboardButton("પ્લેસમેન્ટ", callback_data='2.2.2.1.5')            
         ]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     # await update.message.reply_text("Start handler, Choose a route", reply_markup=reply_markup)
-    await context.bot.send_message(chat_id=update.effective_chat.id, text="MASTER IN COMPUTER APPLICATION",reply_markup=reply_markup)
+    await context.bot.send_message(chat_id=update.effective_chat.id, text="માસ્ટર ઈન કોમ્પ્યુટર એપ્લિકેશન",reply_markup=reply_markup)
 
-async def mca_admission(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def mca_admission_guj(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Prompt same text & keyboard as `start` does but not as new message"""
     # Get CallbackQuery from Update
     # query = update.callback_query
@@ -50,12 +50,12 @@ async def mca_admission(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # await query.answer()
     keyboard = [
         [
-            InlineKeyboardButton("Fees", callback_data='1.2.2.1.1.1'),
-            InlineKeyboardButton("Eligibility", callback_data='1.2.2.1.1.2')
+            InlineKeyboardButton("ફી", callback_data='2.2.2.1.1.1'),
+            InlineKeyboardButton("યોગ્યતા", callback_data='2.2.2.1.1.2')
         ],
         [
-            InlineKeyboardButton("Intake", callback_data='1.2.2.1.1.3'),
-            InlineKeyboardButton("Duration", callback_data='1.2.2.1.1.4')
+            InlineKeyboardButton("ઇન્ટેક", callback_data='2.2.2.1.1.3'),
+            InlineKeyboardButton("સમયગાળો", callback_data='2.2.2.1.1.4')
         ]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)

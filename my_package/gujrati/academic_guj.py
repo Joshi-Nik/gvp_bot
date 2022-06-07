@@ -1,4 +1,3 @@
-
 import logging
 
 from telegram import __version__ as TG_VER
@@ -18,7 +17,7 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
 
 
-async def about_us(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def academic_guj(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Prompt same text & keyboard as `start` does but not as new message"""
     # Get CallbackQuery from Update
     # query = update.callback_query
@@ -27,24 +26,17 @@ async def about_us(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # await query.answer()
     keyboard = [
         [
-            InlineKeyboardButton("Overview", callback_data='1.1.1'),
-            InlineKeyboardButton("History", callback_data='1.1.2')
+            InlineKeyboardButton("ગ્રેજ્યુએશન", callback_data='2.2.1'),
+            InlineKeyboardButton("પોસ્ટ ગ્રેજ્યુએશન", callback_data='2.2.2')
         ],
         [
-            InlineKeyboardButton("General Info", callback_data='1.1.3'),
-            InlineKeyboardButton("Values", callback_data='1.1.4')
+            InlineKeyboardButton("પ્રમાણપત્ર", callback_data='2.2.3'),
+            InlineKeyboardButton("ડિપ્લોમા", callback_data='2.2.4')
         ],
         [
-            InlineKeyboardButton("Emblem", callback_data='1.1.5'),
-            InlineKeyboardButton("Annual Report", callback_data='1.1.6')
-        ],
-        [
-            InlineKeyboardButton("IIQA Undertaking", callback_data='1.1.7')
-        ],
-        [
-            InlineKeyboardButton("Back", callback_data='0.3')
+            InlineKeyboardButton("Back", callback_data='0.1')
         ]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     # await update.message.reply_text("Start handler, Choose a route", reply_markup=reply_markup)
-    await context.bot.send_message(chat_id=update.effective_chat.id, text="About Gujarat Vdyapith",reply_markup=reply_markup)
+    await context.bot.send_message(chat_id=update.effective_chat.id, text="શૈક્ષણિક કાર્યક્રમો : ",reply_markup=reply_markup)

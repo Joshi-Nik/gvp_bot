@@ -2,6 +2,8 @@ import logging
 
 from telegram import __version__ as TG_VER
 
+from my_package.English.bca import bca, bca_admission
+
 try:
     from telegram import __version_info__
 except ImportError:
@@ -58,6 +60,19 @@ async def ug(update: Update, context: ContextTypes.DEFAULT_TYPE):
             InlineKeyboardButton("B.Lib.I.Sc.", callback_data='1.2.1.16')
         ]
     ]
+
+    query = update.callback_query
+
+    await query.answer()
+
+    # await query.edit_message_text(text=f"Selected option: {query.data}")
+    button_choice=query.data
+    print(type(button_choice))
+
+    # if button_choice=='1.2.1.1':
+    #     await bca(update,context)
+    
+
     reply_markup = InlineKeyboardMarkup(keyboard)
     # await update.message.reply_text("Start handler, Choose a route", reply_markup=reply_markup)
     await context.bot.send_message(chat_id=update.effective_chat.id, text="Graduation : ",reply_markup=reply_markup)
