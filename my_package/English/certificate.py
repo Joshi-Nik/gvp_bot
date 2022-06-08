@@ -38,7 +38,7 @@ async def certificate(update: Update, context: ContextTypes.DEFAULT_TYPE):
             InlineKeyboardButton("CSPT", callback_data='1.2.3.6')
         ],
         [
-            InlineKeyboardButton("BACK", callback_data='0.3.6')
+            InlineKeyboardButton("BACK", callback_data='certi_back')
         ]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)

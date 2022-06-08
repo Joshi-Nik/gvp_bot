@@ -32,6 +32,10 @@ async def bca_hin(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [
             InlineKeyboardButton("शिक्षक", callback_data='3.2.1.1.3'),
             InlineKeyboardButton("सुविधाएँ", callback_data='3.2.1.1.4')
+        ],
+        [
+            InlineKeyboardButton("पीछे", callback_data='bca_back_hin'),
+            InlineKeyboardButton("होम", callback_data='bca_home_hin')
         ]
     ]  
 
@@ -48,7 +52,7 @@ async def bca_admission_hin(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # await query.answer()
     
     # await update.message.reply_text("Start handler, Choose a route", reply_markup=reply_markup)
-    await context.bot.send_photo(chat_id=update.effective_chat.id, photo=open('/home/nikhil/Desktop/gvp_bot/python-telegram-bot/my_package/English/image/BCA_ADM.jpg', 'rb'))
+    await context.bot.send_photo(chat_id=update.effective_chat.id, photo=open('/home/nikhil/Desktop/gvp_bot/python-telegram-bot/my_package/image/BCA_ADM.jpg', 'rb'))
     await context.bot.send_message(chat_id=update.effective_chat.id, text="प्रवेश : 60 छात्र")
     await context.bot.send_message(chat_id=update.effective_chat.id, text="अवधि : 3 वर्ष (छह सेमेस्टर)")
     await context.bot.send_message(chat_id=update.effective_chat.id, text="प्रवेश सूचना लिंक : https://gujaratvidyapith.org/dcs/bca.php")

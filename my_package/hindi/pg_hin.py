@@ -44,6 +44,9 @@ async def pg_hin(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [
             InlineKeyboardButton("एम.बी.ए.", callback_data='3.2.2.9'),
             InlineKeyboardButton("एम.एस.सी पर्यावरण विज्ञान और प्रौद्योगिकी में", callback_data='3.2.2.10')
+        ],
+        [
+            InlineKeyboardButton("पीछे", callback_data='pg_back_hin')
         ]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)

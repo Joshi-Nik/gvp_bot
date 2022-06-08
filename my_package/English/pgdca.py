@@ -32,6 +32,10 @@ async def pgdca(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [
             InlineKeyboardButton("Faculty", callback_data='1.2.4.3.3'),
             InlineKeyboardButton("Facilities", callback_data='1.2.4.3.4')
+        ],
+        [
+            InlineKeyboardButton("BACK", callback_data="pgdca_back"),
+            InlineKeyboardButton("HOME", callback_data="pgdca_home")
         ]
     ]  
     
@@ -64,7 +68,7 @@ async def pgdca_admission(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # await query.answer()
     
     # await update.message.reply_text("Start handler, Choose a route", reply_markup=reply_markup)
-    await context.bot.send_photo(chat_id=update.effective_chat.id, photo=open('/home/nikhil/Desktop/gvp_bot/python-telegram-bot/my_package/English/image/MCA_ADM.jpg', 'rb'))
+    await context.bot.send_photo(chat_id=update.effective_chat.id, photo=open('/home/nikhil/Desktop/gvp_bot/python-telegram-bot/my_package/image/MCA_ADM.jpg', 'rb'))
     await context.bot.send_message(chat_id=update.effective_chat.id, text="P.G.D.C.A. is a 1 year Post Graduate Diploma Programme (Two Semester). A silent feature of the P.G.D.C.A. programme is a two-to-three months Industrial project. This allows the students to fine-tune their skills for the carrier ahead. The programme have been receiving active cooperation from some leading organizations. Often the project trainees are offered jobs by the host institutions upon successful completion of their project.")
     await context.bot.send_message(chat_id=update.effective_chat.id, text="INTAKE : 45 Students")
     await context.bot.send_message(chat_id=update.effective_chat.id, text="DURATION : 1 Years (Two Semester)")

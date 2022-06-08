@@ -56,6 +56,9 @@ async def ug_guj(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [
             InlineKeyboardButton("શારીરિક શિક્ષણમાં સ્નાતક", callback_data='2.2.1.15'),
             InlineKeyboardButton("B.Lib.I.Sc.", callback_data='2.2.1.16')
+        ],
+        [
+            InlineKeyboardButton("પાછળ",callback_data="ug_back_guj")
         ]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)

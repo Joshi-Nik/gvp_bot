@@ -32,6 +32,10 @@ async def bca_guj(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [
             InlineKeyboardButton("ફેકલ્ટી", callback_data='2.2.1.1.3'),
             InlineKeyboardButton("સુવિધાઓ", callback_data='2.2.1.1.4')
+        ],
+        [
+            InlineKeyboardButton("પાછળ",callback_data="bca_back_guj"),
+            InlineKeyboardButton("હોમ",callback_data="bca_home_guj")
         ]
     ]  
     
@@ -64,7 +68,7 @@ async def bca_admission_guj(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # await query.answer()
     
     # await update.message.reply_text("Start handler, Choose a route", reply_markup=reply_markup)
-    await context.bot.send_photo(chat_id=update.effective_chat.id, photo=open('/home/nikhil/Desktop/gvp_bot/python-telegram-bot/my_package/English/image/BCA_ADM.jpg', 'rb'))
+    await context.bot.send_photo(chat_id=update.effective_chat.id, photo=open('/home/nikhil/Desktop/gvp_bot/python-telegram-bot/my_package/image/BCA_ADM.jpg', 'rb'))
     await context.bot.send_message(chat_id=update.effective_chat.id, text="ઇન્ટેક : 60 વિદ્યાર્થીઓ")
     await context.bot.send_message(chat_id=update.effective_chat.id, text="સમયગાળો : 3 વર્ષ (છ સેમેસ્ટર)")
     await context.bot.send_message(chat_id=update.effective_chat.id, text="પ્રવેશ માહિતી લિંક. https://gujaratvidyapith.org/dcs/bca.php")

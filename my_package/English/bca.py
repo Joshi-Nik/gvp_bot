@@ -32,25 +32,13 @@ async def bca(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [
             InlineKeyboardButton("Faculty", callback_data='1.2.1.1.3'),
             InlineKeyboardButton("Facilities", callback_data='1.2.1.1.4')
+        ],
+        [
+            InlineKeyboardButton("BACK", callback_data="bca_back"),
+            InlineKeyboardButton("HOME", callback_data="bca_home")
         ]
     ]  
     
-    query = update.callback_query
-    await query.answer()
-
-    # await query.edit_message_text(text=f"Selected option: {query.data}")
-    button_choice=query.data
-    print(type(button_choice))
-
-    # if button_choice=='1.2.1.1.1':
-    #      await context.bot.send_message(chat_id=update.effective_chat.id, text="Admission Link : https://gujaratvidyapith.org/dcs/bca.php")
-    # if button_choice=='1.2.1.1.2':
-    #      await context.bot.send_message(chat_id=update.effective_chat.id, text="Syllabus : ")
-    # if button_choice=='1.2.1.1.3':
-    #      await context.bot.send_message(chat_id=update.effective_chat.id, text="Faculty : ")
-    # if button_choice=='1.2.1.1.4':
-    #      await context.bot.send_message(chat_id=update.effective_chat.id, text="Facilities :")
-
     reply_markup = InlineKeyboardMarkup(keyboard)
     # await update.message.reply_text("Start handler, Choose a route", reply_markup=reply_markup)
     await context.bot.send_message(chat_id=update.effective_chat.id, text="BACHELOR IN COMPUTER APPLICATION",reply_markup=reply_markup)
@@ -64,7 +52,7 @@ async def bca_admission(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # await query.answer()
     
     # await update.message.reply_text("Start handler, Choose a route", reply_markup=reply_markup)
-    await context.bot.send_photo(chat_id=update.effective_chat.id, photo=open('/home/nikhil/Desktop/gvp_bot/python-telegram-bot/my_package/English/image/BCA_ADM.jpg', 'rb'))
+    await context.bot.send_photo(chat_id=update.effective_chat.id, photo=open('/home/nikhil/Desktop/gvp_bot/python-telegram-bot/my_package/image/BCA_ADM.jpg', 'rb'))
     await context.bot.send_message(chat_id=update.effective_chat.id, text="INTAKE : 60 Students")
     await context.bot.send_message(chat_id=update.effective_chat.id, text="DURATION : 3 Years (Six Semester)")
     await context.bot.send_message(chat_id=update.effective_chat.id, text="Admission Process Link. https://www.gujaratvidyapith.org/admission/index.php")

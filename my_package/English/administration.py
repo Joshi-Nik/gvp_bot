@@ -34,7 +34,7 @@ async def administration(update: Update, context: ContextTypes.DEFAULT_TYPE):
             InlineKeyboardButton("Registrars", callback_data='1.3.4')
         ],
         [
-            InlineKeyboardButton("Back", callback_data='0.2')
+            InlineKeyboardButton("Back", callback_data='admin_back')
         ]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)

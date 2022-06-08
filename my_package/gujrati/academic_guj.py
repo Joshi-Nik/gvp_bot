@@ -34,7 +34,7 @@ async def academic_guj(update: Update, context: ContextTypes.DEFAULT_TYPE):
             InlineKeyboardButton("ડિપ્લોમા", callback_data='2.2.4')
         ],
         [
-            InlineKeyboardButton("Back", callback_data='0.1')
+            InlineKeyboardButton("પાછળ", callback_data='aca_back_guj')
         ]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)

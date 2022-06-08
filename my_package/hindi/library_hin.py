@@ -37,7 +37,7 @@ async def library_hin(update: Update, context: ContextTypes.DEFAULT_TYPE):
             InlineKeyboardButton("पुस्तक खरीद पत्र", callback_data='3.4.5')
         ],
         [
-            InlineKeyboardButton("पीछे", callback_data='0.3')
+            InlineKeyboardButton("पीछे", callback_data='lib_back_hin')
         ]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)

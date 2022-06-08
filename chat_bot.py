@@ -68,36 +68,35 @@ async def start(update: Update, context: CallbackContext):
     if hour < 12 :
         await update.message.reply_html(
             rf"Hi.. {user.mention_html()}, Good Morning ",
-            reply_markup=ForceReply(selective=True),
+            #reply_markup=ForceReply(selective=False),
         )
     
-    if hour > 12 :
+    if hour >= 12 :
         await update.message.reply_html(
             rf"Hi.. {user.mention_html()}, Good Afternoon",
-            reply_markup=ForceReply(selective=True),
+            #reply_markup=ForceReply(selective=False),
         )
     if hour > 18 :
         await update.message.reply_html(
             rf"Hi.. {user.mention_html()}, Good Evening",
-            reply_markup=ForceReply(selective=True),
+            #reply_markup=ForceReply(selective=False),
         )
 
     await update.message.reply_html(
-    rf"I'm Gujarat Vidyapith Student Assistent. I Will Help You With Every Information About Gujarat Vidyapith. https://www.gujaratvidyapith.org",
-    reply_markup=ForceReply(selective=True),
+        rf"I'm Gujarat Vidyapith Student Assistent. I Will Help You With Every Information About Gujarat Vidyapith. https://www.gujaratvidyapith.org",
+        #reply_markup=ForceReply(selective=False),
     )
 
     await update.message.reply_html(
-    rf"How May I Help You Today ?",
-    reply_markup=ForceReply(selective=True),
+        rf"How May I Help You Today ?",
+        #reply_markup=ForceReply(selective=False),
     )
 
     await update.message.reply_html(
-    rf"Available Languages",
-    reply_markup=ForceReply(selective=True),
+        rf"Available Languages",
+        #reply_markup=ForceReply(selective=False),
     )
 
-    
     keyboard = [
         [
             InlineKeyboardButton("English", callback_data="1"),
@@ -132,6 +131,12 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await about_us(update,context)
     if button_choice=='1.2':
         await academic(update,context)
+    if button_choice =="0.1.1":
+        await english_button(update,context)
+    if button_choice =="0.1.2":
+        await english_button(update,context)
+    if button_choice == "0.1.2.1":
+        await academic(update,context)
     if button_choice=="1.3":
         await administration(update, context)
     if button_choice=='1.4':
@@ -147,12 +152,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if button_choice=='1.2.2.1':
         await mca(update,context)
     if button_choice=='1.2.2.1.1':
-        await mca_admission(update,context)
-
-    if button_choice=='1.2.1.1':
-        await bca(update,context)
-    if button_choice=='1.2.1.1':
-        await bca_admission(update,context)
+        await mca_admission(update,context)    
     
     # About us
     if button_choice=='1.1.1':
@@ -171,6 +171,12 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
          await context.bot.send_message(chat_id=update.effective_chat.id, text="Click The Following Link. https://gujaratvidyapith.org/newsandevents/IIQA%20Undertaking.pdf")
 
     #MCA
+    if button_choice=="pg_back":
+        await academic(update,context)
+    if button_choice=='mca_back':
+        await pg(update,context)
+    if button_choice=="mca_home":
+        await english_button(update,context)
     if button_choice=='1.2.2.1.2':
          await context.bot.send_message(chat_id=update.effective_chat.id, text="To Check Syllabus Click The Following Link. https://gujaratvidyapith.org/dcs/syllabus.php")
     if button_choice=='1.2.2.1.3':
@@ -200,6 +206,10 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await bca(update,context)
     if button_choice=='1.2.1.1.1':
         await bca_admission(update,context)
+    if button_choice=='bca_back':
+        await ug(update,context)
+    if button_choice=="bca_home":
+        await english_button(update,context)
     if button_choice=='1.2.1.1.2':
         await context.bot.send_message(chat_id=update.effective_chat.id, text="Syllabus : Not Available Now")
     if button_choice=='1.2.1.1.3':
@@ -213,6 +223,12 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
          await context.bot.send_message(chat_id=update.effective_chat.id, text="Library : https://gujaratvidyapith.org/dcs/library.php")
 
     #PGDCA
+    if button_choice=="diploma_back":
+        await academic(update,context)
+    if button_choice=='pgdca_back':
+        await diploma(update,context)
+    if button_choice=="pgdca_home":
+        await english_button(update,context)
     if button_choice=='1.2.4.3':
         await pgdca(update,context)
     if button_choice=='1.2.4.3.1':
@@ -230,6 +246,12 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
          await context.bot.send_message(chat_id=update.effective_chat.id, text="Library : https://gujaratvidyapith.org/dcs/library.php")
 
     #CSPT
+    if button_choice=="certi_back":
+        await academic(update,context)
+    if button_choice=='cspt_back':
+        await certificate(update,context)
+    if button_choice=="cspt_home":
+        await english_button(update,context)
     if button_choice=='1.2.3.6':
         await cspt(update,context)
     if button_choice=='1.2.3.6.1':
@@ -243,6 +265,8 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
          await context.bot.send_message(chat_id=update.effective_chat.id, text="Library Facilities \nLaboratory Facilities")
 
     #Administration
+    if button_choice=="admin_back":
+        await english_button(update,context)
     if button_choice=='1.3.1':
          await context.bot.send_message(chat_id=update.effective_chat.id, text="For Information of Governing Council Click on this link: https://gujaratvidyapith.org/admin.htm")
     if button_choice=='1.3.2':
@@ -253,7 +277,8 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
          await context.bot.send_message(chat_id=update.effective_chat.id, text="For Information about Registrars Click on this link: https://gujaratvidyapith.org/registrars.htm")
 
     #Library
-
+    if button_choice=="lib_back":
+        await english_button(update,context)
     if button_choice=='1.4.1':
          await context.bot.send_message(chat_id=update.effective_chat.id, text="Central Library Information : https://gujaratvidyapith.org/centrallibrary.htm")
     if button_choice=='1.4.2':
@@ -268,7 +293,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     #sports
     
     if button_choice=='1.5':
-         await context.bot.send_message(chat_id=update.effective_chat.id, text="Ahmedabad and two other campuses have running track of 400 mtr. There are different grounds for outdoor sports such as Volleyball, Basketball, Handball, Kabaddi, Kho-Kho, Badminton, and Netball. In addition, Vidyapith also has Gymnasium and Swimming pool. All these facilities are being utilised by students, staff and also by citizens.\n\nSadra campus has well known, well developed physical education college where B.PEd and M.PEd courses are offered. There are separate grounds for Cricket, Volleyball, Basketball and Football. A big Gymnasium hall of national standard prepares the students to compete at higher level. A big open stadium is also available at Sadra campus. A well facilitated indoor stadium for Tennis, Carom, and Weight lifting is also available. The impressive facilities of the physical education department including a large variety of sports and necessary equipment for students under the able guidance and supervision of highly qualified teachers acts as a positive incentive for the students.\n\nGujarat Vidyapith have 4 Multipurpose Play Ground, 1 Tennis, 7 Volley Ball, 2 Basket Ball, 2 Hand Bal, 4 Kabaddi, 2 Kho-Kho, 3 Badminton and 1 Net Ball Courts for Indoor and Outdoor games. 2 400 meters Tracks and Fields, 2 Gymnasium and 2 Outdoor Stadium.")
+         await context.bot.send_message(chat_id=update.effective_chat.id, text="SPORTS : \n\nAhmedabad and two other campuses have running track of 400 mtr. There are different grounds for outdoor sports such as Volleyball, Basketball, Handball, Kabaddi, Kho-Kho, Badminton, and Netball. In addition, Vidyapith also has Gymnasium and Swimming pool. All these facilities are being utilised by students, staff and also by citizens.\n\nSadra campus has well known, well developed physical education college where B.PEd and M.PEd courses are offered. There are separate grounds for Cricket, Volleyball, Basketball and Football. A big Gymnasium hall of national standard prepares the students to compete at higher level. A big open stadium is also available at Sadra campus. A well facilitated indoor stadium for Tennis, Carom, and Weight lifting is also available. The impressive facilities of the physical education department including a large variety of sports and necessary equipment for students under the able guidance and supervision of highly qualified teachers acts as a positive incentive for the students.\n\nGujarat Vidyapith have 4 Multipurpose Play Ground, 1 Tennis, 7 Volley Ball, 2 Basket Ball, 2 Hand Bal, 4 Kabaddi, 2 Kho-Kho, 3 Badminton and 1 Net Ball Courts for Indoor and Outdoor games. 2 400 meters Tracks and Fields, 2 Gymnasium and 2 Outdoor Stadium.")
 
     #up coming program
 
@@ -300,6 +325,8 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # About us
     if button_choice=="2.1":
         await about_us_guj(update,context)
+    if button_choice=="about_back_guj":
+        await gujrati_button(update,context)
     
     if button_choice=='2.1.1':
          await context.bot.send_message(chat_id=update.effective_chat.id, text="ઝાંખી માટે અહીં ક્લિક કરો. https://www.gujaratvidyapith.org/overview.htm")
@@ -318,7 +345,10 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
     #acedemic gujrati
-    
+    if button_choice=="aca_back_guj":
+        await gujrati_button(update,context)
+    if button_choice=="ug_back_guj":
+        await academic_guj(update,context)
     if button_choice=='2.2':
        await academic_guj(update,context)
     if button_choice=='2.2.1':
@@ -331,7 +361,14 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await diploma_guj(update,context)
     
     #MCA GUJ
-
+    if button_choice=="mca_back_guj":
+        await pg_guj(update,context)
+    if button_choice=="mca_home_guj":
+        await gujrati_button(update,context) 
+    if button_choice=="pg_back_guj":
+        await academic_guj(update,context)
+    if button_choice=="pg_home_guj":
+        await gujrati_button(update,context) 
     if button_choice=='2.2.2.1':
         await mca_guj(update,context)
     if button_choice=='2.2.2.1.1':
@@ -359,6 +396,10 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
          await context.bot.send_message(chat_id=update.effective_chat.id, text="લાયકાત : કમ્પ્યુટર સાયન્સ, એન્જિનિયરિંગ અથવા સમકક્ષ ડિગ્રીમાં BCA / બેચલર ડિગ્રી. અથવા B.Sc. / બી.કોમ. / B.A. 10+2 સ્તરે અથવા સ્નાતક સ્તરે ગણિત સાથે (સંબંધિત યુનિવર્સિટીના ધોરણો અનુસાર વધારાના બ્રિજ અભ્યાસક્રમો સાથે). લાયકાતની પરીક્ષામાં ઓછામાં ઓછા 50% ગુણ (અનામત વર્ગના ઉમેદવારોના કિસ્સામાં 45% ગુણ) મેળવ્યા.")
 
     # BCA Guj
+    if button_choice=="bca_back_guj":
+        await ug_guj(update,context)
+    if button_choice=="bca_home_guj":
+        await gujrati_button(update,context)
     if button_choice=='2.2.1.1':
         await bca_guj(update,context)
     if button_choice=='2.2.1.1.1':
@@ -376,6 +417,12 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
          await context.bot.send_message(chat_id=update.effective_chat.id, text="પુસ્તકાલય : https://gujaratvidyapith.org/dcs/library.php")
 
     #PDGCA Guj
+    if button_choice=="pgdca_back_guj":
+        await diploma_guj(update,context)
+    if button_choice=="pgdca_home_guj":
+        await gujrati_button(update,context)
+    if button_choice=="dip_back_guj":
+        await academic_guj(update,context)
     if button_choice=='2.2.4.3':
         await pgdca_guj(update,context)
     if button_choice=='2.2.4.3.1':
@@ -393,6 +440,12 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
          await context.bot.send_message(chat_id=update.effective_chat.id, text="પુસ્તકાલય : https://gujaratvidyapith.org/dcs/library.php")
 
     # CSPT GUJ
+    if button_choice=="cspt_back_guj":
+        await certificate_guj(update,context)
+    if button_choice=="cspt_home_guj":
+        await gujrati_button(update,context)
+    if button_choice=="certi_back_guj":
+        await academic_guj(update,context)
     if button_choice=='2.2.3.6':
         await cspt_guj(update,context)
     if button_choice=='2.2.3.6.1':
@@ -406,6 +459,8 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
          await context.bot.send_message(chat_id=update.effective_chat.id, text="લાયબ્રેરી સુવિધાઓ \nલેબોરેટરી સુવિધાઓ")
 
     #administration
+    if button_choice=="admin_back_guj":
+        await gujrati_button(update,context)
     if button_choice=="2.3":
         await administration_guj(update, context)
     if button_choice=='2.3.1':
@@ -418,7 +473,8 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await context.bot.send_message(chat_id=update.effective_chat.id, text="રજીસ્ટ્રાર માટે અહીં ક્લિક કરો : https://gujaratvidyapith.org/registrars.htm")
 
     #Library
-
+    if button_choice=="lib_back_guj":
+        await gujrati_button(update,context)
     if button_choice=='2.4':
         await library_guj(update,context)
     if button_choice=='2.4.1':
@@ -435,14 +491,20 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
       #sports
     
     if button_choice=='2.5':
-         await context.bot.send_message(chat_id=update.effective_chat.id, text="અમદાવાદ અને અન્ય બે કેમ્પસમાં 400 મીટરનો રનિંગ ટ્રેક છે. વોલીબોલ, બાસ્કેટબોલ, હેન્ડબોલ, કબડ્ડી, ખો-ખો, બેડમિન્ટન અને નેટબોલ જેવી આઉટડોર રમતો માટે અલગ અલગ મેદાન છે. આ ઉપરાંત વિદ્યાપીઠમાં જિમ્નેશિયમ અને સ્વિમિંગ પૂલ પણ છે. આ તમામ સુવિધાઓનો વિદ્યાર્થીઓ, સ્ટાફ અને નાગરિકો દ્વારા પણ ઉપયોગ કરવામાં આવી રહ્યો છે.\n\nસાદરા કેમ્પસમાં જાણીતી, સારી રીતે વિકસિત શારીરિક શિક્ષણ કોલેજ છે જ્યાં B.PEd અને M.PEd અભ્યાસક્રમો આપવામાં આવે છે. ક્રિકેટ, વોલીબોલ, બાસ્કેટબોલ અને ફૂટબોલ માટે અલગ મેદાન છે. રાષ્ટ્રીય ધોરણનો મોટો જિમ્નેશિયમ હોલ વિદ્યાર્થીઓને ઉચ્ચ સ્તરે સ્પર્ધા કરવા માટે તૈયાર કરે છે. સાદરા કેમ્પસમાં એક મોટું ઓપન સ્ટેડિયમ પણ ઉપલબ્ધ છે. ટેનિસ, કેરમ અને વેઇટ લિફ્ટિંગ માટે સારી સુવિધાયુક્ત ઇન્ડોર સ્ટેડિયમ પણ ઉપલબ્ધ છે. ઉચ્ચ લાયકાત ધરાવતા શિક્ષકોના સક્ષમ માર્ગદર્શન અને દેખરેખ હેઠળ વિદ્યાર્થીઓ માટે વિવિધ પ્રકારની રમતો અને જરૂરી સાધનો સહિત શારીરિક શિક્ષણ વિભાગની પ્રભાવશાળી સુવિધાઓ વિદ્યાર્થીઓ માટે સકારાત્મક પ્રોત્સાહન તરીકે કામ કરે છે.\n\nગુજરાત વિદ્યાપીઠ પાસે 4 બહુહેતુક પ્લે ગ્રાઉન્ડ છે, 1 ઇન્ડોર અને આઉટડોર રમતો માટે ટેનિસ, 7 વોલી બોલ, 2 બાસ્કેટ બોલ, 2 હેન્ડ બોલ, 4 કબડ્ડી, 2 ખો-ખો, 3 બેડમિન્ટન અને 1 નેટ બોલ કોર્ટ. 2 400 મીટર ટ્રેક અને ફિલ્ડ્સ, 2 જિમ્નેશિયમ અને 2 આઉટડોર સ્ટેડિયમ.")
+         await context.bot.send_message(chat_id=update.effective_chat.id, text="રમતગમત : \nઅમદાવાદ અને અન્ય બે કેમ્પસમાં 400 મીટરનો રનિંગ ટ્રેક છે. વોલીબોલ, બાસ્કેટબોલ, હેન્ડબોલ, કબડ્ડી, ખો-ખો, બેડમિન્ટન અને નેટબોલ જેવી આઉટડોર રમતો માટે અલગ અલગ મેદાન છે. આ ઉપરાંત વિદ્યાપીઠમાં જિમ્નેશિયમ અને સ્વિમિંગ પૂલ પણ છે. આ તમામ સુવિધાઓનો વિદ્યાર્થીઓ, સ્ટાફ અને નાગરિકો દ્વારા પણ ઉપયોગ કરવામાં આવી રહ્યો છે.\n\nસાદરા કેમ્પસમાં જાણીતી, સારી રીતે વિકસિત શારીરિક શિક્ષણ કોલેજ છે જ્યાં B.PEd અને M.PEd અભ્યાસક્રમો આપવામાં આવે છે. ક્રિકેટ, વોલીબોલ, બાસ્કેટબોલ અને ફૂટબોલ માટે અલગ મેદાન છે. રાષ્ટ્રીય ધોરણનો મોટો જિમ્નેશિયમ હોલ વિદ્યાર્થીઓને ઉચ્ચ સ્તરે સ્પર્ધા કરવા માટે તૈયાર કરે છે. સાદરા કેમ્પસમાં એક મોટું ઓપન સ્ટેડિયમ પણ ઉપલબ્ધ છે. ટેનિસ, કેરમ અને વેઇટ લિફ્ટિંગ માટે સારી સુવિધાયુક્ત ઇન્ડોર સ્ટેડિયમ પણ ઉપલબ્ધ છે. ઉચ્ચ લાયકાત ધરાવતા શિક્ષકોના સક્ષમ માર્ગદર્શન અને દેખરેખ હેઠળ વિદ્યાર્થીઓ માટે વિવિધ પ્રકારની રમતો અને જરૂરી સાધનો સહિત શારીરિક શિક્ષણ વિભાગની પ્રભાવશાળી સુવિધાઓ વિદ્યાર્થીઓ માટે સકારાત્મક પ્રોત્સાહન તરીકે કામ કરે છે.\n\nગુજરાત વિદ્યાપીઠ પાસે 4 બહુહેતુક પ્લે ગ્રાઉન્ડ છે, 1 ઇન્ડોર અને આઉટડોર રમતો માટે ટેનિસ, 7 વોલી બોલ, 2 બાસ્કેટ બોલ, 2 હેન્ડ બોલ, 4 કબડ્ડી, 2 ખો-ખો, 3 બેડમિન્ટન અને 1 નેટ બોલ કોર્ટ. 2 400 મીટર ટ્રેક અને ફિલ્ડ્સ, 2 જિમ્નેશિયમ અને 2 આઉટડોર સ્ટેડિયમ.")
 
     ##### HINDI #####
 
+    if button_choice=='back_hin':
+        await back(update,context)
+
     # About us Hindi
+    if button_choice=="back_about_hin":
+        await hindi_button(update,context)
+    if button_choice=="ug_back_hin":
+        await academic_hin(update,context)
     if button_choice=="3.1":
         await about_us_hin(update,context)
-    
     if button_choice=='3.1.1':
          await context.bot.send_message(chat_id=update.effective_chat.id, text="अवलोकन के लिए यहां क्लिक करें : https://www.gujaratvidyapith.org/overview.htm")
     if button_choice=='3.1.2':
@@ -458,8 +520,9 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if button_choice=='3.1.7':
          await context.bot.send_message(chat_id=update.effective_chat.id, text="IIQA उपक्रम के लिए यहां क्लिक करें : https://gujaratvidyapith.org/newsandevents/IIQA%20Undertaking.pdf")
 
-    #acedemic gujrati
-    
+    #acedemic hindi
+    if button_choice=="aca_back_hin":
+        await hindi_button(update,context)
     if button_choice=='3.2':
        await academic_hin(update,context)
     if button_choice=='3.2.1':
@@ -472,7 +535,10 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await diploma_hin(update,context)
     
     #MCA Hindi
-
+    if button_choice=="mca_back_hin":
+        await pg_hin(update,context)
+    if button_choice=="mca_home_hin":
+        await hindi_button(update,context) 
     if button_choice=='3.2.2.1':
         await mca_hin(update,context)
     if button_choice=='3.2.2.1.1':
@@ -500,6 +566,10 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
          await context.bot.send_message(chat_id=update.effective_chat.id, text="योग्यता: बीसीए / कंप्यूटर साइंस, इंजीनियरिंग या समकक्ष में स्नातक की डिग्री। या बी.एससी. / बी.कॉम. / बी ० ए। गणित के साथ 10 + 2 स्तर पर या स्नातक स्तर पर (संबंधित विश्वविद्यालय के मानकों के अनुसार अतिरिक्त ब्रिज कोर्स के साथ)। अर्हक परीक्षा में कम से कम 50% अंक (आरक्षित वर्ग के उम्मीदवारों के मामले में 45% अंक) प्राप्त किए।")
 
     # BCA Hindi
+    if button_choice=="bca_back_hin":
+        await ug_hin(update,context)
+    if button_choice=="bca_home_hin":
+        await hindi_button(update,context) 
     if button_choice=='3.2.1.1':
         await bca_hin(update,context)
     if button_choice=='3.2.1.1.1':
@@ -517,6 +587,10 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
          await context.bot.send_message(chat_id=update.effective_chat.id, text="पुस्तकालय : https://gujaratvidyapith.org/dcs/library.php")
 
     #PDGCA Hindi
+    if button_choice=="pgdca_back_hin":
+        await diploma_hin(update,context)
+    if button_choice=="pgdca_home_hin":
+        await hindi_button(update,context) 
     if button_choice=='3.2.4.3':
         await pgdca_hin(update,context)
     if button_choice=='3.2.4.3.1':
@@ -534,6 +608,10 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
          await context.bot.send_message(chat_id=update.effective_chat.id, text="पुस्तकालय : https://gujaratvidyapith.org/dcs/library.php")
 
     # CSPT Hindi
+    if button_choice=="cspt_back_hin":
+        await certificate_hin(update,context)
+    if button_choice=="cspt_home_hin":
+        await hindi_button(update,context) 
     if button_choice=='3.2.3.6':
         await cspt_hin(update,context)
     if button_choice=='3.2.3.6.1':
@@ -547,6 +625,8 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
          await context.bot.send_message(chat_id=update.effective_chat.id, text="पुस्तकालय सुविधाएं \nप्रयोगशाला सुविधाएं")
 
     #administration Hindi
+    if button_choice=="admin_back_hin":
+        await hindi_button(update,context)
     if button_choice=="3.3":
         await administration_hin(update, context)
     if button_choice=='3.3.1':
@@ -559,7 +639,8 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await context.bot.send_message(chat_id=update.effective_chat.id, text="रजिस्ट्रार के लिए यहां क्लिक करें : https://gujaratvidyapith.org/registrars.htm")
 
     #Library Hindi
-
+    if button_choice=="lib_back_hin":
+        await hindi_button(update,context)
     if button_choice=='3.4':
         await library_hin(update,context)
     if button_choice=='3.4.1':
@@ -576,7 +657,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
       #sports Hindi
     
     if button_choice=='3.5':
-         await context.bot.send_message(chat_id=update.effective_chat.id, text="अहमदाबाद और दो अन्य परिसरों में 400 मीटर रनिंग ट्रैक है। वॉलीबॉल, बास्केटबॉल, हैंडबॉल, कबड्डी, खो-खो, बैडमिंटन और नेटबॉल जैसे आउटडोर खेलों के लिए अलग-अलग मैदान हैं। विश्वविद्यालय में एक व्यायामशाला और एक स्विमिंग पूल भी है। इन सभी सुविधाओं का उपयोग छात्र, कर्मचारी और नागरिक भी कर रहे हैं। \n\nसदरा कैंपस में एक प्रसिद्ध, अच्छी तरह से विकसित शारीरिक शिक्षा कॉलेज है जहाँ B.PEd और M.PEd पाठ्यक्रम पेश किए जाते हैं। क्रिकेट, वॉलीबॉल, बास्केटबॉल और फुटबॉल के लिए अलग-अलग मैदान हैं। बड़ा राष्ट्रीय मानक व्यायामशाला हॉल छात्रों को उच्च स्तर पर प्रतिस्पर्धा करने के लिए तैयार करता है। मुख्य परिसर में एक बड़ा खुला स्टेडियम भी उपलब्ध है। टेनिस, कैरम और भारोत्तोलन के लिए एक सुसज्जित इनडोर स्टेडियम भी है। शारीरिक शिक्षा विभाग की प्रभावशाली सुविधाएं, जिसमें विभिन्न प्रकार के खेल और उच्च योग्य शिक्षकों के सक्षम मार्गदर्शन और पर्यवेक्षण के तहत छात्रों के लिए आवश्यक उपकरण शामिल हैं, छात्रों के लिए एक सकारात्मक प्रोत्साहन के रूप में कार्य करते हैं। \n\nगुजरात विश्वविद्यालय में 4 बहुउद्देश्यीय खेल के मैदान हैं, 1 इनडोर और आउटडोर खेलों के लिए, टेनिस, 7 वॉलीबॉल, 2 बास्केटबॉल, 2 हैंड बॉल, 4 कबड्डी, 2 खो-खो, 3 बैडमिंटन और 1 नेट बॉल कोर्ट। 2 400 मीटर ट्रैक और फील्ड, 2 व्यायामशाला और 2 आउटडोर स्टेडियम।")
+         await context.bot.send_message(chat_id=update.effective_chat.id, text="खेल-कूद : \nअहमदाबाद और दो अन्य परिसरों में 400 मीटर रनिंग ट्रैक है। वॉलीबॉल, बास्केटबॉल, हैंडबॉल, कबड्डी, खो-खो, बैडमिंटन और नेटबॉल जैसे आउटडोर खेलों के लिए अलग-अलग मैदान हैं। विश्वविद्यालय में एक व्यायामशाला और एक स्विमिंग पूल भी है। इन सभी सुविधाओं का उपयोग छात्र, कर्मचारी और नागरिक भी कर रहे हैं। \n\nसदरा कैंपस में एक प्रसिद्ध, अच्छी तरह से विकसित शारीरिक शिक्षा कॉलेज है जहाँ B.PEd और M.PEd पाठ्यक्रम पेश किए जाते हैं। क्रिकेट, वॉलीबॉल, बास्केटबॉल और फुटबॉल के लिए अलग-अलग मैदान हैं। बड़ा राष्ट्रीय मानक व्यायामशाला हॉल छात्रों को उच्च स्तर पर प्रतिस्पर्धा करने के लिए तैयार करता है। मुख्य परिसर में एक बड़ा खुला स्टेडियम भी उपलब्ध है। टेनिस, कैरम और भारोत्तोलन के लिए एक सुसज्जित इनडोर स्टेडियम भी है। शारीरिक शिक्षा विभाग की प्रभावशाली सुविधाएं, जिसमें विभिन्न प्रकार के खेल और उच्च योग्य शिक्षकों के सक्षम मार्गदर्शन और पर्यवेक्षण के तहत छात्रों के लिए आवश्यक उपकरण शामिल हैं, छात्रों के लिए एक सकारात्मक प्रोत्साहन के रूप में कार्य करते हैं। \n\nगुजरात विश्वविद्यालय में 4 बहुउद्देश्यीय खेल के मैदान हैं, 1 इनडोर और आउटडोर खेलों के लिए, टेनिस, 7 वॉलीबॉल, 2 बास्केटबॉल, 2 हैंड बॉल, 4 कबड्डी, 2 खो-खो, 3 बैडमिंटन और 1 नेट बॉल कोर्ट। 2 400 मीटर ट्रैक और फील्ड, 2 व्यायामशाला और 2 आउटडोर स्टेडियम।")
 
 async def reply(update: Update, context: CallbackContext):
     await context.bot.send_message(chat_id=update.effective_chat.id, text="Click . /start")

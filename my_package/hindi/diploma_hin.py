@@ -26,21 +26,21 @@ async def diploma_hin(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # await query.answer()
     keyboard = [
         [
-            InlineKeyboardButton("પી.જી. યોગિક કલા અને વિજ્ઞાનમાં ડિપ્લોમા", callback_data='2.2.4.1'),
-            InlineKeyboardButton("પીજી ડિપ્લોમા ઇન ઓડિયો વિઝ્યુઅલ પ્રોડક્શન (ટીવી)", callback_data='2.2.4.2')
+            InlineKeyboardButton("पी.जी. डिप्लोमा योगिक कला और विज्ञान में", callback_data='3.2.4.1'),
+            InlineKeyboardButton("पी.जी. डिप्लोमा ऑडियो विजुअल प्रोडक्शन (टीवी) में", callback_data='3.2.4.2')
         ],
         [
-            InlineKeyboardButton("પી.જી. ડિપ્લોમા ઇન કોમ્પ્યુટર એપ્લિકેશન", callback_data='2.2.4.3'),
-            InlineKeyboardButton("પી.જી.ડી. કમ્પ્યુટર હાર્ડવેર અને નેટવર્ક ટેકનોલોજીમાં", callback_data='2.2.4.4')
+            InlineKeyboardButton("पी.जी. डिप्लोमा कंप्यूटर एप्लीकेशन में", callback_data='3.2.4.3'),
+            InlineKeyboardButton("पी.जी. डिप्लोमा कंप्यूटर हार्डवेयर और नेटवर्क प्रौद्योगिकी में", callback_data='3.2.4.4')
         ],
         [
-            InlineKeyboardButton("પી.જી. પ્રયોજનમુલક હિન્દીમાં ડિપ્લોમા", callback_data='2.2.4.5'),
-            InlineKeyboardButton("પી.જી. ડિપ્લોમા ઇન ટ્રાન્સલેશન હિન્દી", callback_data='2.2.4.6')
+            InlineKeyboardButton("पी.जी. डिप्लोमा उद्देश्यपूर्ण हिंदी में", callback_data='3.2.4.5'),
+            InlineKeyboardButton("पी.जी. डिप्लोमा अनुवाद हिंदी में", callback_data='3.2.4.6')
         ],
         [
-            InlineKeyboardButton("BACK", callback_data='0.2.4')
+            InlineKeyboardButton("पीछे", callback_data='diploma_back_hin')
         ]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     # await update.message.reply_text("Start handler, Choose a route", reply_markup=reply_markup)
-    await context.bot.send_message(chat_id=update.effective_chat.id, text="ડિપ્લોમા : ",reply_markup=reply_markup)
+    await context.bot.send_message(chat_id=update.effective_chat.id, text="डिप्लोमा : ",reply_markup=reply_markup)

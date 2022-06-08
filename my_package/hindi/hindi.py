@@ -48,7 +48,7 @@ async def hindi_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
             InlineKeyboardButton("हेरिटेज वॉक", callback_data='3.10')
         ],
         [
-            InlineKeyboardButton("पीछे", callback_data='0')
+            InlineKeyboardButton("पीछे", callback_data='back_hin')
         ]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)

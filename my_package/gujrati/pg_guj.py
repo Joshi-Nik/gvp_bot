@@ -44,6 +44,10 @@ async def pg_guj(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [
             InlineKeyboardButton("એમ બી એ", callback_data='2.2.2.9'),
             InlineKeyboardButton("એમ.એસસી. પર્યાવરણીય વિજ્ઞાન અને ટેકનોલોજીમાં", callback_data='2.2.2.10')
+        ],
+        [
+            InlineKeyboardButton("પાછળ",callback_data="pg_back_guj"),
+            InlineKeyboardButton("હોમ",callback_data="pg_home_guj")
         ]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)

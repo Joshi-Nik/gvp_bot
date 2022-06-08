@@ -38,7 +38,7 @@ async def diploma_guj(update: Update, context: ContextTypes.DEFAULT_TYPE):
             InlineKeyboardButton("પી.જી. ડિપ્લોમા ઇન ટ્રાન્સલેશન હિન્દી", callback_data='2.2.4.6')
         ],
         [
-            InlineKeyboardButton("BACK", callback_data='0.2.4')
+            InlineKeyboardButton("પાછળ", callback_data='dip_back_guj')
         ]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)

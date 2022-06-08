@@ -42,7 +42,7 @@ async def about_us_guj(update: Update, context: ContextTypes.DEFAULT_TYPE):
             InlineKeyboardButton("IIQA ઉપક્રમ", callback_data='2.1.7')
         ],
         [
-            InlineKeyboardButton("પાછળ", callback_data='0.3')
+            InlineKeyboardButton("પાછળ", callback_data='about_back_guj')
         ]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)

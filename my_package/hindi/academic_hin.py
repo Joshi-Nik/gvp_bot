@@ -34,7 +34,7 @@ async def academic_hin(update: Update, context: ContextTypes.DEFAULT_TYPE):
             InlineKeyboardButton("डिप्लोमा", callback_data='3.2.4')
         ],
         [
-            InlineKeyboardButton("पीछे", callback_data='0.1')
+            InlineKeyboardButton("पीछे", callback_data='aca_back_hin')
         ]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)

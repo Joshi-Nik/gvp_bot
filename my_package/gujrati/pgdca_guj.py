@@ -32,6 +32,10 @@ async def pgdca_guj(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [
             InlineKeyboardButton("ફેકલ્ટી", callback_data='2.2.4.3.3'),
             InlineKeyboardButton("સુવિધાઓ", callback_data='2.2.4.3.4')
+        ],
+        [
+            InlineKeyboardButton("પાછળ",callback_data="pgdca_back_guj"),
+            InlineKeyboardButton("હોમ",callback_data="pgdca_home_guj")
         ]
     ]  
     
@@ -48,7 +52,7 @@ async def pgdca_admission_guj(update: Update, context: ContextTypes.DEFAULT_TYPE
     # await query.answer()
     
     # await update.message.reply_text("Start handler, Choose a route", reply_markup=reply_markup)
-    await context.bot.send_photo(chat_id=update.effective_chat.id, photo=open('/home/nikhil/Desktop/gvp_bot/python-telegram-bot/my_package/English/image/MCA_ADM.jpg', 'rb'))
+    await context.bot.send_photo(chat_id=update.effective_chat.id, photo=open('/home/nikhil/Desktop/gvp_bot/python-telegram-bot/my_package/image/MCA_ADM.jpg', 'rb'))
     await context.bot.send_message(chat_id=update.effective_chat.id, text="P.G.D.C.A. 1 વર્ષનો પોસ્ટ ગ્રેજ્યુએટ ડિપ્લોમા પ્રોગ્રામ (બે સેમેસ્ટર) છે. P.G.D.C.A.નું એક મૌન લક્ષણ પ્રોગ્રામ એ બે થી ત્રણ મહિનાનો ઔદ્યોગિક પ્રોજેક્ટ છે. આનાથી વિદ્યાર્થીઓ આગળના વાહક માટે તેમની કુશળતાને સારી રીતે ગોઠવી શકે છે. આ કાર્યક્રમને કેટલીક અગ્રણી સંસ્થાઓ તરફથી સક્રિય સહકાર મળી રહ્યો છે. ઘણીવાર પ્રોજેક્ટ તાલીમાર્થીઓને તેમના પ્રોજેક્ટ સફળતાપૂર્વક પૂર્ણ થયા પછી યજમાન સંસ્થાઓ દ્વારા નોકરીની ઓફર કરવામાં આવે છે.")
     await context.bot.send_message(chat_id=update.effective_chat.id, text="ઇન્ટેક : 45 વિદ્યાર્થીઓ")
     await context.bot.send_message(chat_id=update.effective_chat.id, text="સમયગાળો : 1 વર્ષ (બે સેમેસ્ટર)")

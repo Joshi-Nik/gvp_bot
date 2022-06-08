@@ -58,6 +58,9 @@ async def ug(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [
             InlineKeyboardButton("B.P.Ed.", callback_data='1.2.1.15'),
             InlineKeyboardButton("B.Lib.I.Sc.", callback_data='1.2.1.16')
+        ],
+        [
+            InlineKeyboardButton("BACK", callback_data='0.1.2.1')
         ]
     ]
 
@@ -75,4 +78,4 @@ async def ug(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     reply_markup = InlineKeyboardMarkup(keyboard)
     # await update.message.reply_text("Start handler, Choose a route", reply_markup=reply_markup)
-    await context.bot.send_message(chat_id=update.effective_chat.id, text="Graduation : ",reply_markup=reply_markup)
+    await context.bot.send_message(chat_id=update.effective_chat.id, text="Graduation :",reply_markup=reply_markup)

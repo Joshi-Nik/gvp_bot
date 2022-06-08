@@ -16,7 +16,6 @@ except ImportError:
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
 
-
 async def ug_hin(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Prompt same text & keyboard as `start` does but not as new message"""
     # Get CallbackQuery from Update
@@ -56,8 +55,11 @@ async def ug_hin(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [
             InlineKeyboardButton("शारीरिक शिक्षा में स्नातक", callback_data='3.2.1.15'),
             InlineKeyboardButton("बी.लिब.आई.एससी.", callback_data='3.2.1.16')
+        ],
+        [
+            InlineKeyboardButton("पीछे", callback_data='ug_back_hin')
         ]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     # await update.message.reply_text("Start handler, Choose a route", reply_markup=reply_markup)
-    await context.bot.send_message(chat_id=update.effective_chat.id, text=" स्नातक ")
+    await context.bot.send_message(chat_id=update.effective_chat.id, text="स्नातक",reply_markup=reply_markup)

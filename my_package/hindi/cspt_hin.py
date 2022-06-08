@@ -31,6 +31,10 @@ async def cspt_hin(update: Update, context: ContextTypes.DEFAULT_TYPE):
         ],
         [
             InlineKeyboardButton("सुविधाएँ", callback_data='3.2.3.6.4')
+        ],
+        [
+            InlineKeyboardButton("पीछे", callback_data='cspt_back_hin'),
+            InlineKeyboardButton("होम", callback_data='cspt_home_hin')
         ]
     ]  
 

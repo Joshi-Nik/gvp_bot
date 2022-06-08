@@ -44,6 +44,9 @@ async def pg(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [
             InlineKeyboardButton("MBA", callback_data='1.2.2.9'),
             InlineKeyboardButton("M.Sc in EST", callback_data='1.2.2.10')
+        ],
+        [
+            InlineKeyboardButton("BACK", callback_data='pg_back')
         ]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)

@@ -37,9 +37,9 @@ async def library_guj(update: Update, context: ContextTypes.DEFAULT_TYPE):
             InlineKeyboardButton("પુસ્તક ખરીદી ફોર્મ", callback_data='2.4.5')
         ],
         [
-            InlineKeyboardButton("Back", callback_data='0.3')
+            InlineKeyboardButton("પાછળ", callback_data='lib_back_guj')
         ]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     # await update.message.reply_text("Start handler, Choose a route", reply_markup=reply_markup)
-    await context.bot.send_message(chat_id=update.effective_chat.id, text="LIBRARY",reply_markup=reply_markup)
+    await context.bot.send_message(chat_id=update.effective_chat.id, text="પુસ્તકાલય",reply_markup=reply_markup)

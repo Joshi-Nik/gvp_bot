@@ -38,7 +38,7 @@ async def certificate_hin(update: Update, context: ContextTypes.DEFAULT_TYPE):
             InlineKeyboardButton("सोलर फोटोवोल्टिक तकनीशियन (सीएसपीटी) में प्रमाणपत्र", callback_data='3.2.3.6')
         ],
         [
-            InlineKeyboardButton("पीछे", callback_data='0.3.6')
+            InlineKeyboardButton("पीछे", callback_data='certi_back_in')
         ]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)

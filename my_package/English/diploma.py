@@ -38,7 +38,7 @@ async def diploma(update: Update, context: ContextTypes.DEFAULT_TYPE):
             InlineKeyboardButton("Translation Hindi", callback_data='1.2.4.6')
         ],
         [
-            InlineKeyboardButton("BACK", callback_data='0.2.4')
+            InlineKeyboardButton("BACK", callback_data='diploma_back')
         ]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)

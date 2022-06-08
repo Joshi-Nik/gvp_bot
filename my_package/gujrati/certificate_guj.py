@@ -38,7 +38,7 @@ async def certificate_guj(update: Update, context: ContextTypes.DEFAULT_TYPE):
             InlineKeyboardButton("સોલર ફોટોવોલ્ટિક ટેકનિશિયન (CSPT) માં પ્રમાણપત્ર", callback_data='2.2.3.6')
         ],
         [
-            InlineKeyboardButton("BACK", callback_data='0.3.6')
+            InlineKeyboardButton("પાછળ", callback_data='certi_back_guj')
         ]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)

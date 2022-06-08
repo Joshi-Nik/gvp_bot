@@ -32,6 +32,10 @@ async def pgdca_hin(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [
             InlineKeyboardButton("शिक्षक", callback_data='3.2.4.3.3'),
             InlineKeyboardButton("सुविधाएँ", callback_data='3.2.4.3.4')
+        ],
+        [
+            InlineKeyboardButton("पीछे", callback_data='pgdca_back_hin'),
+            InlineKeyboardButton("होम", callback_data='pgdca_home_hin')
         ]
     ]  
     
@@ -48,7 +52,7 @@ async def pgdca_admission_hin(update: Update, context: ContextTypes.DEFAULT_TYPE
     # await query.answer()
     
     # await update.message.reply_text("Start handler, Choose a route", reply_markup=reply_markup)
-    await context.bot.send_photo(chat_id=update.effective_chat.id, photo=open('/home/nikhil/Desktop/gvp_bot/python-telegram-bot/my_package/English/image/MCA_ADM.jpg', 'rb'))
+    await context.bot.send_photo(chat_id=update.effective_chat.id, photo=open('/home/nikhil/Desktop/gvp_bot/python-telegram-bot/my_package/image/MCA_ADM.jpg', 'rb'))
     await context.bot.send_message(chat_id=update.effective_chat.id, text="पी.जी.डी.सी.ए 1 वर्षीय स्नातकोत्तर डिप्लोमा कार्यक्रम (दो सेमेस्टर) है। पीजीडीसीए का साइलेंट फीचर प्रोग्राम दो से तीन महीने की औद्योगिक परियोजना है। यह छात्रों को अगले कैरियर के लिए अपने कौशल को बेहतर ढंग से समायोजित करने की अनुमति देता है। कार्यक्रम को कुछ प्रमुख संगठनों से सक्रिय समर्थन मिल रहा है। अक्सर परियोजना प्रशिक्षुओं को उनकी परियोजनाओं के सफलतापूर्वक पूरा होने के बाद मेजबान संगठनों द्वारा नौकरी की पेशकश की जाती है।")
     await context.bot.send_message(chat_id=update.effective_chat.id, text="प्रवेश : 45 छात्र")
     await context.bot.send_message(chat_id=update.effective_chat.id, text="अवधि : 1 वर्ष (दो सेमेस्टर)")

@@ -31,6 +31,10 @@ async def cspt(update: Update, context: ContextTypes.DEFAULT_TYPE):
         ],
         [
             InlineKeyboardButton("Facilities", callback_data='1.2.3.6.4')
+        ],
+        [
+            InlineKeyboardButton("BACK", callback_data="cspt_back"),
+            InlineKeyboardButton("HOME", callback_data="cspt_home")
         ]
     ]  
     

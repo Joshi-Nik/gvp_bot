@@ -42,7 +42,7 @@ async def about_us_hin(update: Update, context: ContextTypes.DEFAULT_TYPE):
             InlineKeyboardButton("IIQA उपक्रम", callback_data='3.1.7')
         ],
         [
-            InlineKeyboardButton("पीछे", callback_data='0.3')
+            InlineKeyboardButton("पीछे", callback_data='back_about_hin')
         ]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)

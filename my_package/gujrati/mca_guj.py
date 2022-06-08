@@ -35,6 +35,10 @@ async def mca_guj(update: Update, context: ContextTypes.DEFAULT_TYPE):
         ],
         [
             InlineKeyboardButton("પ્લેસમેન્ટ", callback_data='2.2.2.1.5')            
+        ],
+        [
+            InlineKeyboardButton("પાછળ",callback_data="mca_back_guj"),
+            InlineKeyboardButton("હોમ",callback_data="mca_home_guj")
         ]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
@@ -60,5 +64,5 @@ async def mca_admission_guj(update: Update, context: ContextTypes.DEFAULT_TYPE):
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     # await update.message.reply_text("Start handler, Choose a route", reply_markup=reply_markup)
-    await context.bot.send_photo(chat_id=update.effective_chat.id, photo=open('/home/nikhil/Desktop/gvp_bot/python-telegram-bot/my_package/English/image/MCA_ADM.jpg', 'rb'))
+    await context.bot.send_photo(chat_id=update.effective_chat.id, photo=open('/home/nikhil/Desktop/gvp_bot/python-telegram-bot/my_package/image/MCA_ADM.jpg', 'rb'))
     await context.bot.send_message(chat_id=update.effective_chat.id, text="Admission Process Link. https://www.gujaratvidyapith.org/admission/index.php",reply_markup=reply_markup)
